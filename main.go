@@ -8,12 +8,14 @@ import (
 )
 
 func main() {
-	err := reader.ReadCSV("assets/employees.csv", func(employee model.RawEmployee) error {
-		fmt.Printf("%+v\n", employee)
-		return nil
-	})
+	err := reader.ReadCSV("assets/employees.csv", recordHandler)
 
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func recordHandler(employee model.RawEmployee) error {
+	fmt.Printf("%+v\n", employee)
+	return nil
 }
