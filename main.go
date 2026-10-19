@@ -10,7 +10,7 @@ import (
 func main() {
 	stats := collector.NewStatisticsCollector()
 
-	err := pipeline.Run(context.Background(), "./assets/employees.csv", "./output/rejected.jsonl", stats)
+	err := pipeline.Run(context.Background(), "./assets/employees_1m.csv", "./output/rejected.jsonl", stats)
 	if err != nil {
 		log.Printf("Processing failed: %v", err)
 		log.Println("Collected statistics may be incomplete.")
